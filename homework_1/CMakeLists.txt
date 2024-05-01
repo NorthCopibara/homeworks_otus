@@ -29,7 +29,10 @@ set_target_properties(test_version PROPERTIES
 target_link_libraries(homework_1_cli PRIVATE
         homework_1
 )
-target_link_libraries(test_version Boost::unit_test)
+target_link_libraries(test_version
+        ${Boost_LIBRARIES}
+        homework_1
+)
 
 if (MSVC)
     target_compile_options(homework_1_cli PRIVATE
@@ -68,4 +71,3 @@ include(CPack)
 enable_testing()
 
 add_test(test_version test_version)
-add_test(test_version test_valid_version)
