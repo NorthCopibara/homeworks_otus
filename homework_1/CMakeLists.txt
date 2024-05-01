@@ -29,7 +29,7 @@ set_target_properties(test_version PROPERTIES
 target_link_libraries(homework_1_cli PRIVATE
         homework_1
 )
-target_link_libraries(test_version Boost::boost)
+target_link_libraries(test_version Boost::unit_test)
 
 if (MSVC)
     target_compile_options(homework_1_cli PRIVATE
