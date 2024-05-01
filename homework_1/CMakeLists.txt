@@ -1,6 +1,4 @@
 cmake_minimum_required(VERSION 3.10)
-project(homework_1)
-
 
 set(PATCH_VERSION "2" CACHE INTERNAL "Patch version")
 set(PROJECT_VERSION 0.1.${PATCH_VERSION})
@@ -14,6 +12,13 @@ configure_file(version.h.in version.h)
 add_executable(homework_1_cli main.cpp)
 add_library(homework_1 lib.cpp)
 
+target_include_directories(homework_1
+        PRIVATE "${CMAKE_BINARY_DIR}"
+)
+
+target_link_libraries(homework_1_cli PRIVATE
+        homework_1
+)
 
 set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
