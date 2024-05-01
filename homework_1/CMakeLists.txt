@@ -56,8 +56,6 @@ else ()
     )
 endif()
 
-
-
 install(TARGETS homework_1_cli RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
